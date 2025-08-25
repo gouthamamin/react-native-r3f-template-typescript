@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber/native';
 import Cube from './src/components/Cube';
 import Lights from './src/core/Lights';
 import PixiuModel from './src/components/PixiuModel';
+import { OrbitControls } from '@react-three/drei';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Lights />
       {/* <Cube /> */}
       <PixiuModel scale={[3, 3, 3]} position={[0, -0.5, 0]} />
+      <OrbitControls />
     </Canvas>
   );
 }
