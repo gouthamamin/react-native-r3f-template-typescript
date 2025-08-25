@@ -8,7 +8,7 @@ export default function App() {
     <Canvas camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}>
       <Lights />
       {/* <Cube /> */}
-      <PixiuModel />
+      <PixiuModel scale={[3, 3, 3]} position={[0, -0.5, 0]} />
     </Canvas>
   );
 }
