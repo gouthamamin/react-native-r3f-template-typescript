@@ -10,7 +10,13 @@ export default function App() {
       <Lights />
       {/* <Cube /> */}
       <PixiuModel scale={[3, 3, 3]} position={[0, -0.5, 0]} />
-      <OrbitControls />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
+        rotateSpeed={10}
+      />
     </Canvas>
   );
 }
