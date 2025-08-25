@@ -1,21 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-interface SettingsModalProps {
-  onClose: () => void;
-}
 
-export default function SettingsModal({ onClose }: SettingsModalProps) {
+export default function SettingsModal(props: iSettingsModalProps) {
   return (
     <View style={styles.popup}>
       <Text style={styles.popupTitle}>Settings</Text>
-      <Image 
-        source={require('../../assets/images/cat.png')} 
+      <Image
+        source={require('../../assets/images/cat.png')}
         style={styles.image}
         resizeMode="contain"
       />
       <Text style={styles.popupText}>There is nothing here</Text>
-      <TouchableOpacity style={styles.closeBtn} onPress={onClose}>
+      <TouchableOpacity style={styles.closeBtn} onPress={props.onClose}>
         <Text style={styles.closeBtnText}>Close</Text>
       </TouchableOpacity>
     </View>

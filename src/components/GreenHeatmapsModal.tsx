@@ -1,16 +1,21 @@
+import { Canvas } from '@react-three/fiber/native';
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Cube from './Cube';
+import Lights from '../core/Lights';
 
-interface GreenHeatmapsModalProps {
-  onClose: () => void;
-}
-
-export default function GreenHeatmapsModal({ onClose }: GreenHeatmapsModalProps) {
+export default function GreenHeatmapsModal(props: iGreenHeatmapsModalProps) {
   return (
     <View style={styles.popup}>
       <Text style={styles.popupText}>Green Heatmaps</Text>
-      <Text style={styles.description}>This shows green heatmap data visualization</Text>
-      <TouchableOpacity style={styles.closeBtn} onPress={onClose}>
+      <View style={styles.canvasContainer}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+          <Lights />
+          <Cube scale={[3,3,3]} />
+        </Canvas>
+      </View>
+
+      <TouchableOpacity style={styles.closeBtn} onPress={props.onClose}>
         <Text style={styles.closeBtnText}>Close</Text>
       </TouchableOpacity>
     </View>
@@ -25,6 +30,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     elevation: 5,
+  },
+  canvasContainer: {
+    width: 200,
+    height: 200,
+    marginVertical: 10,
+    backgroundColor: '#ffffffff',
   },
   popupText: {
     fontSize: 18,
