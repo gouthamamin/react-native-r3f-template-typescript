@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 
-const Cube = () => {
+const Cube = (props : iCubeProps) => {
   const cubeRef = useRef<Mesh>(null);
 
   useFrame(() => {
@@ -13,7 +13,7 @@ const Cube = () => {
   });
 
   return (
-    <mesh ref={cubeRef}>
+    <mesh ref={cubeRef} scale={props.scale} position={props.position}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color="red" />
     </mesh>
